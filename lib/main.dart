@@ -10,29 +10,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
-            child: const Text(
-              'Flutter App',
-              style: TextStyle(fontFamily: 'Pacifico', fontSize: 30,color: Colors.white),
-            ),
-          ),
-          backgroundColor: Colors.blue,
-        ),
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          backgroundColor: Color.fromARGB(255, 4, 104, 34),
+          title: Column(
             children: [
-              Container(height: 100, width: 100, color: Colors.red),
-              SizedBox(height: 20),
-              Container(height: 100, width: 100, color: Colors.green),
-              SizedBox(height: 20),
-              Container(height: 100, width: 100, color: Colors.blue),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Whatsapp'),
+                  Row(children: [Icon(Icons.search), Icon(Icons.more_vert)]),
+                ],
+              ),
             ],
           ),
         ),
+
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+
+        body: Center(child: Text('Hello, World!')),
       ),
     );
   }
