@@ -73,7 +73,20 @@ class MyApp extends StatelessWidget {
 
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
 
-        body:  Center(child: Text("Hello")),
+        body:  Column(
+          children: [
+            ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage('https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png'),
+              ),
+              title: Text('John Doe'),
+              subtitle: Text('Hey there! I am using WhatsApp.'),
+              trailing: Text('12:00 PM'),
+            )
+           
+          ],
+        ),
 
         floatingActionButton: SizedBox(
           height: 70,
