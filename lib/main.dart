@@ -44,18 +44,27 @@ class MyApp extends StatelessWidget {
                 children: [
                   Icon(Icons.camera_alt_outlined, color: Colors.white),
 
-                  Text(
-                    'CHATS',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'CHATS',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Container(width: 56, height: 2, color: Colors.white),
+                    ],
                   ),
                   Text(
                     'STATUS',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
                   Text(
@@ -63,6 +72,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
                 ],
@@ -73,35 +83,43 @@ class MyApp extends StatelessWidget {
 
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
 
-        body:  Column(
+        body: Column(
           children: [
-            ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                backgroundImage: NetworkImage('https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png'),
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(
+                        'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png',
+                      ),
+                    ),
+                    title: Text('John Doe'),
+                    subtitle: Text('Hey there! I am using WhatsApp.'),
+                    trailing: Text('12:00 PM'),
+                  );
+                },
+                itemCount: 20,
+                shrinkWrap: true,
               ),
-              title: Text('John Doe'),
-              subtitle: Text('Hey there! I am using WhatsApp.'),
-              trailing: Text('12:00 PM'),
-            )
-           
+            ),
           ],
         ),
 
         floatingActionButton: SizedBox(
           height: 70,
           width: 70,
-          
+
           child: FloatingActionButton(
             onPressed: () {
               print("Button clicked");
             },
             backgroundColor: Color.fromARGB(255, 4, 104, 34),
-            child:  Icon(Icons.message,
-            color: Colors.white,
+            child: Icon(Icons.message, color: Colors.white),
           ),
         ),
       ),
-    ));
+    );
   }
 }
